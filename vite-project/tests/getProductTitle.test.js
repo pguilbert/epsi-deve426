@@ -37,5 +37,6 @@ test("get good title", async () => {
 
 test("get good url", async () => {
   vi.stubGlobal("fetch", mockFetch);
+  await getProductTitle(1);
   expect(mockFetch).toHaveBeenCalledWith("https://dummyjson.com/products/1/");
 });
