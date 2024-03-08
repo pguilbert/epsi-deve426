@@ -33,3 +33,9 @@ test("isPalindrome rien", () => {
   expect(isPalindrome("")).toBe(true);
 });
 
+test.each(["semâmes", "sonos", "kayak"])(
+  "isPalindrome(%s) should be true",
+  (input) => {
+    expect(isPalindrome(input)).toBe(true);
+  }
+);
