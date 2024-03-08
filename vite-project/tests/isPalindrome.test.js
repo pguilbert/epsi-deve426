@@ -16,8 +16,6 @@ test("isPalindrome Accent", () => {
 // test("isPalindrome Error", () => {
 //   expect(isPalindrome()).toThrowError();
 // });
-import { isPalindrome } from "../functions/isPalindrome";
-import { expect, test } from "vitest";
 
 test.each(["semâmes", "sonos", "kayak"])(
   "isPalindrome(%s) should be true",
