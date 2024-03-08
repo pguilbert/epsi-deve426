@@ -9,14 +9,17 @@ const mockFetch = vi.fn((url)=>{
 }
 });
 
-// const spy = vi.spyOn("fetch", getProductTitle);
-
-test("should get title", async () => {
+test("should get good url", async () => {
   vi.stubGlobal("fetch", mockFetch);
-  expect(fetch).toHaveBeenCalledWith("https://dummyjson.com/products/1")
+  await getProductTitle(1);
+  expect(fetch).toHaveBeenCalledWith("https://dummyjson.com/products/1/")
 });
 
-// expect(await getProductTitle(1)).toBe("iPhone 9");
+test("should get title", async () => {
+  expect(await getProductTitle(1)).toBe("iPhone 9");
+});
+
+
 // test("should throw error wrong product", async () => {
 //     expect(await getProductTitle(8888)).toThrowError("Failed to fetch product")
-//   });
+//   });-
