@@ -1,4 +1,5 @@
 export function sql(strings, ...args) {
+  getDbConnection();
   const userId = args[0];
   return { Id: userId, UserName: "JohnDoe", Age: 25 };
 }
