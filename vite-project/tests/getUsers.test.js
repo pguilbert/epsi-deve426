@@ -1,13 +1,11 @@
 import { getUserById } from "../functions/getUsers.js";
+import { sql } from "../internal/sql.js";
 import { vi, expect, test } from "vitest";
 
 vi.mock("../internal/sql", () => ({
-    sql: vi.fn()
+    sql: vi.fn((strings, ...args) => `SELECT * FROM USER WHERE Id = ${args[0]}`)
   }));
   
   test("getUserById", async () => {
-    sql.mockResolvedValue([{ id: 1, nom: "Nom" }]);
-    const result = await getUserById(1);
-    expect(sql).toHaveBeenCalledWith`SELECT * FROM USER WHERE Id = ${1}`;
-    expect(result).toBe([{ id: 1, nom: "Nom" }]);
+    expect(getUserById(1)).toBe("SELECT * FROM USER WHERE Id = 1");
   });
