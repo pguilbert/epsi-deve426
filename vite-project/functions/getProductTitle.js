@@ -4,7 +4,8 @@ export async function getProductTitle(title) {
     const data = await response.json();
     const title = data.title;
     return title;
-  } catch (error) {
+  } 
+  catch (error) {
     throw new Error("Failed to fetch product");
   }
 }
