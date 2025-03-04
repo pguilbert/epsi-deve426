@@ -7,3 +7,7 @@ test.each(["semâmes", "sonos", "kayak"])(
     expect(isPalindrome(input)).toBe(true);
   }
 );
+
+test("not palindrome", () => {
+  expect(isPalindrome("palindrome")).toBe(false);
+});

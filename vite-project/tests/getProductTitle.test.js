@@ -11,6 +11,6 @@ test("getProductTitle", async () => {
             }
         }
     });
-    expect(await getProductTitle("productTitle")).toBe({title: "productTitle"});
+    expect(await getProductTitle(1)).toBe({title: "productTitle"});
 });
 
