@@ -27,3 +27,6 @@ export function clamp(number, lower, upper) {
   }
   return number;
 }
+
+console.log(clamp(-10, -5, 5));
+console.log(clamp(10, -5, 5));
