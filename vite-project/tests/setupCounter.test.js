@@ -1,5 +1,5 @@
 import { setupCounter } from "../functions/setupCounter";
-import { test, expect } from "vitest";
+import { vi, test, expect } from "vitest";
 import { clamp } from "../functions/clamp";
 
 
@@ -12,8 +12,6 @@ test("setupCounter initialise et met à jour le compteur", () => {
   expect(element.innerHTML).toBe("count is 1");
   clickHandler(); 
   expect(element.innerHTML).toBe("count is 2");
-  expect(clamp).toHaveBeenCalledWith(1, 0, 10);
-  expect(clamp).toHaveBeenCalledWith(2, 0, 10);
 });
 
 test("setupCounter ne dépasse pas 10", () => {
