@@ -1,15 +1,9 @@
-import { getUsers } from "../functions/getUsers.js";
+import { getUsersById } from "../functions/getUsers.js";
 import { expect, test, vi } from "vitest";
 
-test("Get users successfully", async () => {
-    vi.spyOn(global, "fetch").mockImplementation(() =>
-        Promise.resolve({
-            ok: true,
-            json: () => Promise.resolve([{ id: 1, name: "John Doe" }]),
-        })
-    );
-    const result = await getUsers();
-    expect(result).toBeInstanceOf(Array);
-    expect(result.length).toBeGreaterThan(0);
-    global.fetch.mockRestore();
+vi.mock("../internal/sql", () => ({sql: vi.fn(() => ({ id: 1 })), 
+}));
+
+test("récupération de l'utilisateur", () => {
+  expect(getUserById(1)).toEqual({ id: 1 });
 });
