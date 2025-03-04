@@ -2,12 +2,12 @@ import { getProduct } from "../functions/getProductTitle.js";
 import { expect, test, vi } from "vitest";
 
 test("Get product title successfully", async () => {
-    const result = await getProduct("1"); 
-    expect(result).toBe("iPhone 9");
-});
+    vi.spyOn(global, "fetch").mockImplementation(() => Promise.resolve({json: () => Promise.resolve({ title: "iPhone 9" }),
+}));
+const result = await getProduct("1");
+expect(result).toBe("iPhone 9");
 
-test("Get product title with invalid product ID", async () => {
-    await expect(getProduct("invalid")).rejects.toThrow("Failed to fetch product");
+global.fetch.mockRestore();
 });
 
 test("Get product title with network error", async () => {

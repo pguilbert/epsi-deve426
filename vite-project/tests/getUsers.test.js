@@ -1,6 +1,9 @@
 import { getUserById } from "../functions/getUsers.js";
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 
-test("recuperation de l'utilisateur", () => {
-    expect(getUserById(1)).toBe(1);
+vi.mock("../internal/sql", () => ({sql: vi.fn(() => ({ id: 1 })), 
+}));
+
+test("récupération de l'utilisateur", () => {
+  expect(getUserById(1)).toEqual({ id: 1 });
 });
