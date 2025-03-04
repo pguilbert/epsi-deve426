@@ -1,4 +1,4 @@
-import { isPalindrome } from "../functions/isPalindrome";
+import { isPalindrome } from "../functions/isPalindrome.js";
 import { expect, test } from "vitest";
 
 test.each(["semâmes", "sonos", "kayak"])(
