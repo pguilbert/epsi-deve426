@@ -2,7 +2,7 @@ import { getProductTitle } from "../functions/getProductTitle.js";
 import { expect, test, vi } from "vitest";
 
 
-test("getProductTitle", async () => {
+test("should return the title", async () => {
     vi.stubGlobal('fetch', () => {
         return {
             json: () => {

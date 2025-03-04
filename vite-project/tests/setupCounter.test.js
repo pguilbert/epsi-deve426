@@ -1,7 +1,7 @@
 import { setupCounter } from "../functions/setupCounter.js";
 import { expect, test } from "vitest";
 
-test("setupCounter", () => {
+test("should return the html with the good counter number", () => {
     const element = document.createElement('div');
     setupCounter(element);
     expect(element.innerHTML).toBe(`count is 0`);
