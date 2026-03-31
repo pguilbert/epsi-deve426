@@ -1,4 +1,4 @@
-export async function getProductTitle(id) {
+export async function getProductTitleById(id) {
   try {
     const response = await fetch(`https://dummyjson.com/products/${id}/`);
     const data = await response.json();
