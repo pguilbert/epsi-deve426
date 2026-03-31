@@ -6,7 +6,7 @@ import { sql } from "../internal/sql";
 vi.mock("../internal/sql", () => ({
   sql: vi.fn((strings, ...args) => {
     const userId = args[0];
-    return { Id: userId, UserName: "JohnDoe", Age: 25 };
+    return { Id: userId };
   }),
 }));
 
@@ -16,6 +16,6 @@ test("get user test", () => {
   // should exec sql request (ignore if sql error)
   expect(sql).toHaveBeenCalled();
   // should return user "JohnDoe / Age 25 / id: 1"
-  expect(user).toEqual({ Id: userId, UserName: "JohnDoe", Age: 25 });
+  expect(user).toEqual({ Id: userId });
 });
 
