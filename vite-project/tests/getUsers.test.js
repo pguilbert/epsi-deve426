@@ -1,6 +1,10 @@
-import { getUsers } from "../functions/getUsers.js";
-import { expect, test } from "vitest";
+import { getUserById } from "../functions/getUsers.js";
+import { expect, test, vi } from "vitest";
 
-test("get users", () => {
-  expect(getUsers()).toBeInstanceOf(Array);
+vi.mock("../internal/sql", () => ({
+  sql: () => [],
+}));
+
+test("get user by ID", () => {
+  expect(getUserById(1)).toBeInstanceOf(Array);
 });

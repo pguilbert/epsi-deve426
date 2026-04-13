@@ -1,22 +1,12 @@
+// @vitest-environment jsdom
 import { setupCounter } from "../functions/setupCounter.js";
 import { expect, test, beforeEach } from "vitest";
 
-function createMockElement() {
-  return {
-    innerHTML: "",
-    _listeners: {},
-    addEventListener(event, cb) {
-      this._listeners[event] = cb;
-    },
-    click() {
-      if (this._listeners["click"]) this._listeners["click"]();
-    },
-  };
-}
-
 let element;
 beforeEach(() => {
-  element = createMockElement();
+  document.body.innerHTML = "";
+  element = document.createElement("button");
+  document.body.appendChild(element);
 });
 
 test("initializes counter to 0", () => {
