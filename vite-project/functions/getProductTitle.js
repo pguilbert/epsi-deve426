@@ -5,6 +5,6 @@ export async function getProductTitle(id) {
     const title = data.title;
     return title;
   } catch (error) {
-    throw new Error("Failed to fetch product");
+    throw error;
   }
 }
