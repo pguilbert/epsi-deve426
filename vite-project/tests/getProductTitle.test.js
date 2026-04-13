@@ -13,7 +13,7 @@ test("test get product title by id (mock success and not found with internet)", 
     
     if (url.includes("/7777")) {
       return Promise.resolve({
-        ok: false, // Simule une 404
+        ok: false,
         status: 404,
         json: () => Promise.resolve({ message: "Product not found" }),
       });
